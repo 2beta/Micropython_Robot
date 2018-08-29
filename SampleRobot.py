@@ -5,7 +5,7 @@ Date : 2018 08 21
 Version : 1.0
 """
 #-----------------------------------------------------
-from Robot import Scheduler, LineSensors, Motors
+from MyLibrary import Scheduler, LineSensors, Motors
 import time
 
 myScheduler=Scheduler(250) # main loop executed every 250ms
@@ -38,16 +38,13 @@ while True:
     print ("It's time, #{}".format(i))
     #---------------------------------------
     position = myLineSensors.getPosition()
-    print("position = {}".format(position))
+    print("Position = {}".format(position))
     if position == LineSensors.ON_LEFT:
       myMotors.right(50)
-      #print("Trop a gauche")
     elif position == LineSensors.ON_RIGHT:
-      myMotors.left(50)
-      #print("Trop a droite")      
+      myMotors.left(50)      
     elif position == LineSensors.ON_MIDDLE:
       myMotors.forward(50)
-      #print("Au centre")
     else:
       myMotors.stopAll()
-      #print("Oups, probleme de position")
+
