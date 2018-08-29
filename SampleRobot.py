@@ -5,7 +5,7 @@ Date : 2018 08 21
 Version : 1.0
 """
 #-----------------------------------------------------
-from MyLibrary import Scheduler, LineSensors, Motors
+from Robot import Scheduler, LineSensors, Motors
 import time
 
 myScheduler=Scheduler(250) # main loop executed every 250ms
