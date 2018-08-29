@@ -54,22 +54,14 @@ class LineSensors:
     self.rightSensor = Pin(pin3, Pin.IN, Pin.PULL_UP)  # D7 / GPIO13
   
   def getPosition(self):  
-    print("gauche = {}".format(self.leftSensor.value()))              
-    print("centre = {}".format(self.middleSensor.value()))              
-    print("droite = {}".format(self.rightSensor.value()))
-    print("")
-    if self.leftSensor.value()==LineSensors.WHITE :#and self.middleSensor==LineSensors.BLACK and self.rightSensor==LineSensors.WHITE:
-      print("-------------------------")
+    if self.leftSensor.value()==LineSensors.WHITE and self.middleSensor.value()==LineSensors.BLACK and self.rightSensor.value()==LineSensors.WHITE :
       return LineSensors.ON_MIDDLE
-    """elif self.leftSensor==LineSensors.BLACK and self.rightSensor==LineSensors.BLACK:
-      return LineSensors.ON_MIDDLE
-    elif self.leftSensor==LineSensors.BLACK and self.rightSensor==LineSensors.WHITE:
+    if self.leftSensor.value()==LineSensors.BLACK and self.rightSensor.value()==LineSensors.WHITE :
       return LineSensors.ON_LEFT
-    elif self.leftSensor==LineSensors.WHITE and self.rightSensor==LineSensors.BLACK:
+    elif self.leftSensor.value()==LineSensors.WHITE and self.rightSensor.value()==LineSensors.BLACK:
       return LineSensors.ON_RIGHT
     else:
-      return LineSensors.UNKNOWN"""
-
+      return LineSensors.UNKNOWN
  
 #------------------------------------------------------
 class Motors:
@@ -120,6 +112,7 @@ class Motors:
     self.BIN2.duty(self._speedConvertion(speed))
     self.AIN1.duty(self._speedConvertion(speed))
     self.AIN2.duty(0)
+
 
 
 
