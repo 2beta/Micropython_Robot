@@ -12,6 +12,7 @@ Material list:
 Some links for info:
 
 - ESP8266 : https://tttapa.github.io/ESP8266/Chap04%20-%20Microcontroller.html
+- Motor shield pinout : https://arduino.stackexchange.com/questions/33460/following-on-esp8266-board-pins-how-do-they-map-on-the-motor-shield
 - Motor shield on ESP8266/Micropython https://forum.micropython.org/viewtopic.php?t=3977
 - Motor shield on ESP8266/Lua https://www.instructables.com/id/Motorize-IoT-With-ESP8266/
 - Motor shield on PiBoard/Micropython http://wiki.mchobby.be/index.php?title=Hack-micropython-L293D#Classe_HBridge
