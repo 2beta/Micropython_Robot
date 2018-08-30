@@ -2,7 +2,7 @@
 Project : Library with tools for line tracking robot
 Author : Cedric Debetaz
 Date : 2018 08 21
-Version 1.0
+Version 2.0
 """
 
 
