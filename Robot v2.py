@@ -72,7 +72,7 @@ class Motors:
   def _speedConvertion (self, speed):
     return speed #int((speed*1023)/100)
   
-  def __init__ (self, io1=5, io2=4, io3=0, io4=2):
+  def __init__ (self, io1=5, io2=0, io3=4, io4=2):
     # nodemcu pins from the motor shield """
     self.pwm_A = PWM(Pin(io1), freq=750) # D1 PWM A
     self.pwm_B = PWM(Pin(io2), freq=750) # D2 PWM B
