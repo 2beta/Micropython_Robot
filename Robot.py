@@ -49,9 +49,9 @@ class LineSensors:
   ON_RIGHT = 3
 
   def __init__ (self, pin1=14, pin2=12, pin3=13):
-    self.leftSensor = Pin(pin1, Pin.IN, Pin.PULL_UP)  # D5 / GPIO14
-    self.middleSensor = Pin(pin2, Pin.IN, Pin.PULL_UP)  # D6 / GPIO12
-    self.rightSensor = Pin(pin3, Pin.IN, Pin.PULL_UP)  # D7 / GPIO13
+    self.leftSensor = Pin(pin1, Pin.IN)  # D5 / GPIO14
+    self.middleSensor = Pin(pin2, Pin.IN)  # D6 / GPIO12
+    self.rightSensor = Pin(pin3, Pin.IN)  # D7 / GPIO13
   
   def getPosition(self):  
     if self.leftSensor.value()==LineSensors.WHITE and self.middleSensor.value()==LineSensors.BLACK and self.rightSensor.value()==LineSensors.WHITE :
@@ -121,6 +121,7 @@ class Motors:
     self.pwm_B.duty(self._speedConvertion(speed))
     self.direction_A.value(1)
     self.direction_B.value(0)
+
 
 
 
