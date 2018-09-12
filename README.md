@@ -2,7 +2,7 @@
 
 Robot will follow a black line on ground
 
-Material list:
+Bill of Materials:
 
 - 1 ESP8266
 - 1 Motor shield for ESP8266 (with L293D H-Bridge)
@@ -17,3 +17,10 @@ Some links for info:
 - Motor shield on ESP8266/Lua https://www.instructables.com/id/Motorize-IoT-With-ESP8266/
 - Motor shield on PiBoard/Micropython http://wiki.mchobby.be/index.php?title=Hack-micropython-L293D#Classe_HBridge
 - Motor shield on ESP8266/Arduino  https://www.hackster.io/andrewf1/simplest-wifi-car-using-esp8266-motorshield-37501e
+
+info:
+
+I had to remove 2 resistances to have a working shield
+The solution was found here : https://forum.micropython.org/viewtopic.php?t=3977
+
+![motor_schield_fix](/Doc/motor_schield_fix.jpg)
