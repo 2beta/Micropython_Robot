@@ -20,7 +20,6 @@ Some links for info:
 
 info:
 
-I had to remove 2 resistances to have a working shield
-The solution was found here : https://forum.micropython.org/viewtopic.php?t=3977
+I had to remove 2 resistances to have a working shield. The solution was found here : https://forum.micropython.org/viewtopic.php?t=3977
 
 ![motor_schield_fix](/Doc/motor_schield_fix.jpg)
