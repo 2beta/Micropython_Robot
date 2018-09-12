@@ -2,7 +2,7 @@
 Project : Library with tools for line tracking robot
 Author : Cedric Debetaz
 Date : 2018 08 21
-Version 1.0
+Version 2.0
 """
 
 
@@ -70,50 +70,57 @@ class Motors:
   speed 0-100
   """
   def _speedConvertion (self, speed):
-    return speed #int((speed*1023)/100)
+    # speed minimum 55 (on my robot motors)
+    return int((speed*1023.0)/100.0)
   
   def __init__ (self, io1=5, io2=4, io3=0, io4=2):
-      # nodemcu pins from the motor shield """
-    pin1 = Pin(io1, Pin.OUT)  # D1
-    pin2 = Pin(io2, Pin.OUT)  # D2
-    pin3 = Pin(io3, Pin.OUT)  # D3
-    pin4 = Pin(io4, Pin.OUT)  # D4
-
-    # named after the L9110 h-bridge pins """
-    self.BIN1 = PWM(pin1, freq=750)
-    self.BIN2 = PWM(pin3, freq=750)
-    self.AIN1 = PWM(pin2, freq=750)
-    self.AIN2 = PWM(pin4, freq=750)
+    # nodemcu pins from the motor shield """
+    self.pwm_A = PWM(Pin(io1), freq=750) # D1 PWM A
+    self.pwm_B = PWM(Pin(io2), freq=750) # D2 PWM B
+    self.direction_A = Pin(io3, Pin.OUT) # D3 Direction A
+    self.direction_B = Pin(io4, Pin.OUT) # D4 Direction B   
 
   def stopAll(self):
-    for each in (self.BIN1, self.BIN2, self.AIN1, self.AIN2):
-      each.duty(0)
+    self.pwm_A.duty(0)
+    self.pwm_B.duty(0)
+    self.direction_A.value(0)
+    self.direction_B.value(0)
 
   def backward(self, speed):
-    self.BIN1.duty(0)
-    self.BIN2.duty(self._speedConvertion(speed))
-    self.AIN1.duty(0)
-    self.AIN2.duty(self._speedConvertion(speed))
+    self.pwm_A.duty(self._speedConvertion(speed))
+    self.pwm_B.duty(self._speedConvertion(speed))
+    self.direction_A.value(0)
+    self.direction_B.value(0)
 
   def forward(self, speed):
-    self.BIN1.duty(self._speedConvertion(speed))
-    self.BIN2.duty(0)
-    self.AIN1.duty(self._speedConvertion(speed))
-    self.AIN2.duty(0)
-
+    self.pwm_A.duty(self._speedConvertion(speed))
+    self.pwm_B.duty(self._speedConvertion(speed))
+    self.direction_A.value(1)
+    self.direction_B.value(1)
+    
   def left(self, speed):
-    self.BIN1.duty(self._speedConvertion(speed))
-    self.BIN2.duty(0)
-    self.AIN1.duty(0)
-    self.AIN2.duty(self._speedConvertion(speed))
+    self.pwm_A.duty(self._speedConvertion(speed))
+    self.pwm_B.duty(0)
+    self.direction_A.value(0)
+    self.direction_B.value(0)
 
   def right(self, speed):
-    self.BIN1.duty(0)
-    self.BIN2.duty(self._speedConvertion(speed))
-    self.AIN1.duty(self._speedConvertion(speed))
-    self.AIN2.duty(0)
+    self.pwm_A.duty(0)
+    self.pwm_B.duty(self._speedConvertion(speed))
+    self.direction_A.value(0)
+    self.direction_B.value(0)
+  
+  def left_fast(self, speed):
+    self.pwm_A.duty(self._speedConvertion(speed))
+    self.pwm_B.duty(self._speedConvertion(speed))
+    self.direction_A.value(0)
+    self.direction_B.value(1)
 
-
+  def right_fast(self, speed):
+    self.pwm_A.duty(self._speedConvertion(speed))
+    self.pwm_B.duty(self._speedConvertion(speed))
+    self.direction_A.value(1)
+    self.direction_B.value(0)
 
 
 

@@ -5,7 +5,7 @@ Date : 2018 08 21
 Version : 1.0
 """
 #-----------------------------------------------------
-from MyLibrary import Scheduler, LineSensors, Motors
+from Robot import Scheduler, LineSensors, Motors
 import time
 
 myScheduler=Scheduler(250) # main loop executed every 250ms
@@ -17,18 +17,42 @@ i=0 # number of main loop done
 Init
 """
 print("Init started")
+print("stop")
 myMotors.stopAll()
-time.sleep(1)
+time.sleep(2)
+
+print("forward")
 myMotors.forward(50)
-time.sleep(1)
-myMotors.backward(50)
-time.sleep(1)
+time.sleep(2)
+
+print("backward")
+myMotors.backward(55)
+time.sleep(2)
+
+print("left")
+myMotors.left(60)
+time.sleep(2)
+
+print("right")
+myMotors.right(65)
+time.sleep(2)
+
+print("left_fast")
+myMotors.left_fast(70)
+time.sleep(2)
+
+print("right_fast")
+myMotors.right_fast(75)
+time.sleep(2)
+
+print("stop")
 myMotors.stopAll()
 time.sleep(1)
 print("Init done")
 
 """
 Main loop
+"""
 """
 print("Main loop")
 while True:
@@ -47,4 +71,6 @@ while True:
       myMotors.forward(50)
     else:
       myMotors.stopAll()
+"""
+
 
