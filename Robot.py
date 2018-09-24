@@ -1,3 +1,6 @@
+
+
+
 """
 Project : Library with tools for line tracking robot
 Author : Cedric Debetaz
@@ -40,8 +43,8 @@ class LineSensors:
   """ 
   Line sensors
   """
-  WHITE = True
-  BLACK = False
+  WHITE = False
+  BLACK = True
   
   UNKNOWN = 0
   ON_LEFT = 1
@@ -101,28 +104,23 @@ class Motors:
   def left(self, speed):
     self.pwm_A.duty(self._speedConvertion(speed))
     self.pwm_B.duty(0)
-    self.direction_A.value(0)
+    self.direction_A.value(1)
     self.direction_B.value(0)
 
   def right(self, speed):
     self.pwm_A.duty(0)
     self.pwm_B.duty(self._speedConvertion(speed))
     self.direction_A.value(0)
-    self.direction_B.value(0)
+    self.direction_B.value(1)
   
   def left_fast(self, speed):
-    self.pwm_A.duty(self._speedConvertion(speed))
-    self.pwm_B.duty(self._speedConvertion(speed))
-    self.direction_A.value(0)
-    self.direction_B.value(1)
-
-  def right_fast(self, speed):
     self.pwm_A.duty(self._speedConvertion(speed))
     self.pwm_B.duty(self._speedConvertion(speed))
     self.direction_A.value(1)
     self.direction_B.value(0)
 
-
-
-
-
+  def right_fast(self, speed):
+    self.pwm_A.duty(self._speedConvertion(speed))
+    self.pwm_B.duty(self._speedConvertion(speed))
+    self.direction_A.value(0)
+    self.direction_B.value(1)

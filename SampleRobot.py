@@ -16,6 +16,7 @@ i=0 # number of main loop done
 """
 Init
 """
+"""
 print("Init started")
 print("stop")
 myMotors.stopAll()
@@ -49,11 +50,12 @@ print("stop")
 myMotors.stopAll()
 time.sleep(1)
 print("Init done")
+"""
 
 """
 Main loop
 """
-"""
+
 print("Main loop")
 while True:
   tick = myScheduler.update()
@@ -63,14 +65,12 @@ while True:
     #---------------------------------------
     position = myLineSensors.getPosition()
     print("Position = {}".format(position))
-    if position == LineSensors.ON_LEFT:
+    """if position == LineSensors.ON_LEFT:
       myMotors.right(50)
     elif position == LineSensors.ON_RIGHT:
       myMotors.left(50)      
     elif position == LineSensors.ON_MIDDLE:
       myMotors.forward(50)
     else:
-      myMotors.stopAll()
-"""
-
+      myMotors.stopAll()"""
 
